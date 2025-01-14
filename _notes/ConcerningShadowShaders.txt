@@ -1,0 +1,7 @@
+Now, for Shadows, they don't use Fragment Shaders since shadows are just black.
+So Fragment Shader attached does nothing --- though they can do something like adding
+soft edges.
+Shadows are made from the Vertex Shader purely.
+
+This is because Shadows are basically the shape and position of the object itself but
+that have been transformed by the Light's direction.

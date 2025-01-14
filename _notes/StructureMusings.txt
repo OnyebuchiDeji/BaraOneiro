@@ -1,0 +1,16 @@
+
+Data Storage and Management.
+
+files_core
+
+File Manager.
+
+File Manager is in charge of reading data from files and returning them in a string format.
+Or getting data as string or byte and writing it to file, without modifying it.
+
+Model Reader
+
+Model Reader is in charge of reading the model data from a 3D model file and providing the
+data in a useable structure.
+After doing this, in other files like the VBO_MANAGER, a VBO object will modify this data
+so one can add any additional attribute like Texture IDs and such, before sending to the GPU

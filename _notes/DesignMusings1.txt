@@ -1,0 +1,46 @@
+
+A Script creates a scene
+
+A Script defines the Shaders it will need for the scene.
+It also defines what Entities would be added to the scene.
+
+What was called a Test is now called a Scene.
+
+A Script can make different Scenes, however only one Scene
+can be shown at a time.
+
+A Script defines how Entities will behave and be modified.
+
+
+An Entity has many parts.
+An Entity has many types it can be.
+
+An Entity can have the data that defines it, creates its own VAO, IBO, and VBO, and
+defines the attributes of its data, sending it to the GPU.
+
+An Entity has other attributes independent of the Data. These are attributes it sends
+as Uniforms.
+
+An Entity should have a combination of Shaders that take some specific set of its attributes
+to produce the effect needed for that Entity.
+
+For example, an all Entities need to be rendered normally; no lighting effects and no
+shadows needed. There will be a PlainRender fragment shader for this.
+But if the entity is to be rendered with some lighting, then send the attributes when
+using the LightingRender fragment shader.
+If there should be both lighting and shadows, CompleteRender fragment shader would be used.
+
+Note the Vertex Shaders can remain the same. Only the Fragment Shaders are different
+For only Ambient Lighting -- AmbientLightFrag
+For only Specular Lighting -- SpecularLightFrag
+For both Ambient and Specular -- CompleteLightFrag
+Likewise, for the same Entity, to render shadows, the ShadowRenderVert will be used.
+
+Hence, one Entity can send data to as many shaders as needed so that it can be properly
+rendered.
+
+
+
+
+
+

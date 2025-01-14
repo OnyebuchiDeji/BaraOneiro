@@ -1,0 +1,27 @@
+Date: Tue-14-Jan-2025
+
+Game Engine Series Episode 1
+
+If you open the BaraOreino solution file, you'll see that the "ThePisaRocket" project
+specification was moved above the other the Engine's Core project to make the former
+always be the startup project, even though this is indeed still set in this project's setup.
+
+
+Also by setting ThePisaRocket project to reference BaraOreino, anytime
+the former is compiled, the latter, BaraOreino, is also compiled automatically and linked.
+
+Now since the BaraOreino project is set to compile into a DLL, this startup will automatically
+generate the appropriate DLL and StaticDLL files needed for it to link to the ThePisaRocket
+project correctly. Compiling a DLL generates this lib and dll file.
+The StaticLIB file contains function pointers to the DLL, which ensures the linking process
+is successful. This way, functions and symbols do not manually need to be loaded from the dll file
+as the static lib file does this. But the dlll file is what is needed at run time.
+
+
+Game Engine Series Episode 2
+
+This changing the Entry point of the program. The goal is to set it up so that the entry point
+is done from the Engine side.
+Here an Application class is made for one to use to launch and define one's application inside
+the sandbox project which in my case is the 'ThePisaRocket'.
+Also the whole __declspec(dllimport) and __declspec(dllexport) functions into MACROs.
